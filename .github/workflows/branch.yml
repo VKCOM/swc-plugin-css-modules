@@ -1,0 +1,16 @@
+name: 'Branch'
+
+run-name: Test ${{ github.ref_name }}
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: test-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    uses: ./.github/workflows/workflow_test.yml

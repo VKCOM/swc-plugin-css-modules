@@ -1,0 +1,29 @@
+{
+  "name": "swc-plugin-css-modules",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "keywords": [
+    "swc-plugin",
+    "css-modules"
+  ],
+  "homepage": "https://github.com/VKCOM/swc-plugin-css-modules",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VKCOM/swc-plugin-css-modules.git"
+  },
+  "bugs": "https://github.com/VKCOM/swc-plugin-css-modules/issues",
+  "main": "swc_plugin_css_modules.wasm",
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "cargo build-wasi --release",
+    "postbuild": "cp target/wasm32-wasi/release/swc_plugin_css_modules.wasm .",
+    "test": "cargo test",
+    "lint": "cargo clippy --all-targets --all-features"
+  },
+  "files": [
+    "swc_plugin_css_modules.wasm"
+  ],
+  "preferUnplugged": true
+}

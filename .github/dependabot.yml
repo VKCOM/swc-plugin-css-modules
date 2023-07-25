@@ -1,0 +1,33 @@
+version: 2
+updates:
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    reviewers:
+      - 'VKCOM/vk-sec'
+      - 'VKCOM/vkui-core'
+
+  # Maintain dependencies for npm
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    allow:
+      - dependency-type: 'direct'
+    reviewers:
+      - 'VKCOM/vk-sec'
+      - 'VKCOM/vkui-core'
+
+  # Maintain dependencies for Cargo
+  - package-ecosystem: 'cargo'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    allow:
+      - dependency-type: 'indirect'
+    reviewers:
+      - 'VKCOM/vk-sec'
+      - 'VKCOM/vkui-core'
+

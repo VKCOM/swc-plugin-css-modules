@@ -1,0 +1,39 @@
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: 'The branch, tag or SHA to checkout'
+        default: ${{ github.ref }}
+        required: false
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.ref }}
+
+      - uses: VKCOM/gh-actions/shared/rust/cargo-cache@main
+
+      - name: Run Test
+        run: cargo test --verbose
+
+      - name: Run Clippy
+        run: cargo clippy --all-targets --all-features
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.ref }}
+
+      - uses: VKCOM/gh-actions/shared/rust/cargo-cache@main
+
+      - name: Run Build
+        run: cargo build-wasi --release
+      
+      
