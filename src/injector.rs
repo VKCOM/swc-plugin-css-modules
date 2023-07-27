@@ -10,6 +10,19 @@ use swc_core::plugin::errors::HANDLER;
 use crate::generic_names::{Generator, Options};
 use crate::Config;
 
+/// Returns the full path to the file's directory.
+///
+/// - swc/loader and swc/jest pass full `filepath`
+/// - swc/cli pass relative `filepath`
+fn get_dir(mut context: PathBuf, filepath: PathBuf) -> PathBuf {
+    if filepath.has_root() {
+        return filepath.parent().unwrap().to_path_buf();
+    }
+
+    context.push(filepath);
+    return context.parent().unwrap().to_path_buf();
+}
+
 pub struct Injector {
     dir: PathBuf,
     config: Config,
@@ -20,13 +33,13 @@ pub struct Injector {
 
 impl Injector {
     pub fn new(cwd: &str, filepath: &str, config: Config) -> Self {
-        let dir = PathBuf::from(filepath).parent().unwrap().to_path_buf();
-
         let context = PathBuf::from(if config.root.is_empty() {
             cwd.to_string()
         } else {
             config.root.clone()
         });
+
+        let dir = get_dir(context.clone(), PathBuf::from(filepath));
 
         Self {
             dir,
@@ -46,6 +59,15 @@ impl Injector {
         let p = PathBuf::from(src.to_string());
 
         let filepath = p.absolutize_from(self.dir.clone()).unwrap().to_path_buf();
+
+        if !filepath.has_root() {
+            panic!(
+                "dir: {}; p: {}; filepath: {}",
+                self.dir.to_str().unwrap(),
+                p.to_str().unwrap(),
+                filepath.to_str().unwrap()
+            )
+        }
 
         self.imports.insert(local.clone(), filepath);
     }
