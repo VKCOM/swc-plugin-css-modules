@@ -21,11 +21,11 @@ twox-hash = "1"
 
 # digest
 base16ct = { version = "0.2", features = ["alloc"] }
-base32ct =  { version = "0.2", features = ["alloc"] }
-base64ct =  { version = "1", features = ["alloc"] }
+base32ct = { version = "0.2", features = ["alloc"] }
+base64ct = { version = "1", features = ["alloc"] }
 
 pathdiff = "0.2"
-path-absolutize = { version = "3", features = ["use_unix_paths_on_wasm"]}
+path-absolutize = { version = "3", features = ["use_unix_paths_on_wasm"] }
 
 serde = "1"
 serde_json = "1"
@@ -34,8 +34,10 @@ regex = "1"
 lazy_static = "1"
 swc_core = { version = "0.79", features = [
   "ecma_plugin_transform",
-  "ecma_parser"
-]}
+  "ecma_parser",
+] }
+
+ts-rs = "6"
 
 [dev-dependencies]
 testing = "0.33"

@@ -15,6 +15,7 @@
   },
   "bugs": "https://github.com/VKCOM/swc-plugin-css-modules/issues",
   "main": "swc_plugin_css_modules.wasm",
+  "types": "./types.d.ts",
   "scripts": {
     "prepack": "npm run build",
     "build": "cargo build-wasi --release",
@@ -23,7 +24,8 @@
     "lint": "cargo clippy --all-targets --all-features"
   },
   "files": [
-    "swc_plugin_css_modules.wasm"
+    "swc_plugin_css_modules.wasm",
+    "types.d.ts"
   ],
   "preferUnplugged": true
 }
