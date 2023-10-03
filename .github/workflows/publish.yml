@@ -1,13 +1,13 @@
-name: 'Publish'
+name: "Publish"
 
 on:
   workflow_dispatch:
     inputs:
       type:
-        description: 'version type:'
+        description: "version type:"
         required: true
         type: choice
-        default: 'minor'
+        default: "minor"
         options:
           - patch
           - minor
@@ -28,17 +28,17 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: 'yarn'
+          node-version: 20
+          cache: "npm"
           always-auth: true
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install wasm target
         run: |
           rustup target add wasm32-wasi
 
-      - run: yarn run test
-      - run: yarn run build
+      - run: npm run test
+      - run: npm run build
 
       - name: Set Git credentials
         run: |
@@ -47,11 +47,11 @@ jobs:
 
       - name: Bump by version type
         if: ${{ !github.event.inputs.custom_version }}
-        run: yarn version --${{ github.event.inputs.type }} --no-commit-hooks
+        run: npm version ${{ github.event.inputs.type }} --no-commit-hooks --no-git-tag-version
 
       - name: Bump by custom version
         if: ${{ github.event.inputs.custom_version }}
-        run: yarn version --new-version ${{ github.event.inputs.custom_version }} --no-commit-hooks
+        run: npm version ${{ github.event.inputs.custom_version }} --no-commit-hooks --no-git-tag-version
 
       - name: Pushing changes
         uses: ad-m/github-push-action@master
@@ -60,6 +60,6 @@ jobs:
           branch: ${{ github.ref }}
 
       - name: Publishing release
-        run: yarn publish --non-interactive
+        run: npm publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLISH_TOKEN }}
