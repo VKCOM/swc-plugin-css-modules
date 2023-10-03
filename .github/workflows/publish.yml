@@ -21,6 +21,8 @@ run-name: Publish ${{ inputs.type }} ${{ inputs.custom_version }}
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - uses: actions/checkout@v4
         with:
