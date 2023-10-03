@@ -27,5 +27,8 @@
     "swc_plugin_css_modules.wasm",
     "types.d.ts"
   ],
-  "preferUnplugged": true
+  "preferUnplugged": true,
+  "publishConfig": {
+    "provenance": true
+  }
 }
