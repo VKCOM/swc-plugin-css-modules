@@ -1527,9 +1527,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_testing"
-version = "0.22.3"
+version = "0.22.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "094df1bb2d903d6a4c40c1bfcb9660cca6b89081745ef9e7dbe2879e877f35fc"
+checksum = "552e72c78ef74df6e36eba72cd1ecea8c321cf185f538e1edd4730f3232758f1"
 dependencies = [
  "anyhow",
  "hex",
@@ -1787,9 +1787,9 @@ dependencies = [
 
 [[package]]
 name = "testing"
-version = "0.35.3"
+version = "0.35.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c56b59c3bf184873bfc0f5c3bcf9520f37aafba1cfd71747c084d05cbd81b5dd"
+checksum = "7855b63271220e8b246ab720e825acf966716b099eb798a86ae38774786ad07e"
 dependencies = [
  "ansi_term",
  "cargo_metadata",
@@ -1797,6 +1797,7 @@ dependencies = [
  "once_cell",
  "pretty_assertions",
  "regex",
+ "serde",
  "serde_json",
  "swc_common",
  "swc_error_reporters",
