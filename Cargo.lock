@@ -1571,9 +1571,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_testing"
-version = "0.22.5"
+version = "0.22.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "07897bcca406905b333fc7ece2a394cf9866c9b169dc36a169e5718b21667196"
+checksum = "cdef8444347a52fa6d1b139e99ec339510d7a4cbcea112850ecf728d597eb8eb"
 dependencies = [
  "anyhow",
  "hex",
@@ -1677,9 +1677,9 @@ dependencies = [
 
 [[package]]
 name = "swc_error_reporters"
-version = "0.17.3"
+version = "0.17.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a01f33bf449b34284d146bd953a62624ba42a2694c607dcb8a3ea5433e18c1b7"
+checksum = "a170f3373c1e24088777e0095b3a11530c00d2056d6b9ee256c5c81dd2862465"
 dependencies = [
  "anyhow",
  "miette",
@@ -1831,9 +1831,9 @@ dependencies = [
 
 [[package]]
 name = "testing"
-version = "0.35.5"
+version = "0.35.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "764a25cc0e009664dc15f87acba353a7844058f5b1810fd5f0d0948b8dce1b1b"
+checksum = "cdd7c65cc0974fce9e51915c6f9baa4cbe4fd75a4fd54cab20cd9130e6a237b1"
 dependencies = [
  "ansi_term",
  "cargo_metadata",
