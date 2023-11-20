@@ -877,12 +877,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5b40af805b3121feab8a3c29f04d8ad262fa8e0561883e7653e024ae4479e6de"
 
 [[package]]
-name = "precomputed-hash"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "925383efa346730478fb4838dbe9137d2a47675ad789c546d150a6e1dd4ab31c"
-
-[[package]]
 name = "pretty_assertions"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1344,20 +1338,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
-name = "string_cache"
-version = "0.8.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f91138e76242f575eb1d3b38b4f1362f10d3a43f47d182a5b359af488a02293b"
-dependencies = [
- "new_debug_unreachable",
- "once_cell",
- "parking_lot",
- "phf_shared 0.10.0",
- "precomputed-hash",
- "serde",
-]
-
-[[package]]
 name = "string_enum"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1439,9 +1419,9 @@ dependencies = [
 
 [[package]]
 name = "swc_common"
-version = "0.33.8"
+version = "0.33.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "49fba1ce1d44f142b9e8212a6360fc7818e2c99c7f5ebe8b4fa4061c5764e48e"
+checksum = "5ccb656cd57c93614e4e8b33a60e75ca095383565c1a8d2bbe6a1103942831e0"
 dependencies = [
  "anyhow",
  "ast_node",
@@ -1460,7 +1440,6 @@ dependencies = [
  "serde",
  "siphasher",
  "sourcemap",
- "string_cache",
  "swc_atoms",
  "swc_eq_ignore_macros",
  "swc_visit",
