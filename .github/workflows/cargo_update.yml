@@ -10,6 +10,10 @@ jobs:
       contents: write
       pull-requests: write
     steps:
+      - name: Update swc_core
+        uses: VKCOM/gh-actions/shared/rust/cargo-update-toml@main
+        with:
+          packages: swc_core
       - uses: VKCOM/gh-actions/shared/rust/cargo-update-pr@main
         with:
           token: ${{ secrets.DEVTOOLS_GITHUB_TOKEN }}
