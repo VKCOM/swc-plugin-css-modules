@@ -10,6 +10,8 @@ jobs:
       contents: write
       pull-requests: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Update swc_core
         uses: VKCOM/gh-actions/shared/rust/cargo-update-toml@main
         with:
