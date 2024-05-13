@@ -32,12 +32,12 @@ serde_json = "1"
 serde-inline-default = "0.2.0"
 regex = "1"
 lazy_static = "1"
-swc_core = { version = "0.90", features = [
+swc_core = { version = "0.92", features = [
   "ecma_plugin_transform",
   "ecma_parser",
 ] }
 
-ts-rs = "7"
+ts-rs = "8"
 
 [dev-dependencies]
 testing = "0.35"
