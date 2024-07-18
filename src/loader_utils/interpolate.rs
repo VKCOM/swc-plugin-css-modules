@@ -25,7 +25,7 @@ pub struct Options<'a> {
 ///   other digestTypes, i. e. hex, base32, base64
 ///   and length the length in chars
 /// - `[hash]` the hash of options.content (Buffer) (by default it's the hex digest of the xxhash64 hash)
-/// In loader context `[hash]` and `[contenthash]` are the same, but we recommend using `[contenthash]` for avoid misleading.
+///   In loader context `[hash]` and `[contenthash]` are the same, but we recommend using `[contenthash]` for avoid misleading.
 ///
 /// # Examples
 ///
