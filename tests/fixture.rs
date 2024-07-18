@@ -1,14 +1,14 @@
 use std::{env, fs, path::PathBuf};
 
 use swc_core::ecma::{
-    parser::{EsConfig, Syntax},
+    parser::{EsSyntax, Syntax},
     transforms::testing::test_fixture,
     visit::as_folder,
 };
 use swc_plugin_css_modules::{Config, Injector};
 
 fn syntax() -> Syntax {
-    Syntax::Es(EsConfig {
+    Syntax::Es(EsSyntax {
         jsx: true,
         ..Default::default()
     })
