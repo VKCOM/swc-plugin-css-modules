@@ -29,6 +29,8 @@ npm i -D swc-plugin-css-modules
 yarn add -D swc-plugin-css-modules
 ```
 
+You can check the compatibility of versions on https://plugins.swc.rs/
+
 ## Usage
 
 Via `.swcrc`
