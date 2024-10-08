@@ -20,7 +20,8 @@ fn get_dir(mut context: PathBuf, filepath: PathBuf) -> PathBuf {
     }
 
     context.push(filepath);
-    return context.parent().unwrap().to_path_buf();
+
+    context.parent().unwrap().to_path_buf()
 }
 
 pub struct Injector {
