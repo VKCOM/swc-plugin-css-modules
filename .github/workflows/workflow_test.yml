@@ -33,4 +33,4 @@ jobs:
       # - uses: VKCOM/gh-actions/shared/rust/cargo-cache@main
 
       - name: Run Build
-        run: cargo build-wasi --release
+        run: cargo build-wasip1 --release
