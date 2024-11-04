@@ -3,7 +3,7 @@ use std::{env, fs, path::PathBuf};
 use swc_core::ecma::{
     parser::{EsSyntax, Syntax},
     transforms::testing::test_fixture,
-    visit::as_folder,
+    visit::visit_mut_pass,
 };
 use swc_plugin_css_modules::{Config, Injector};
 
@@ -28,7 +28,7 @@ fn fixture(input: PathBuf) {
     test_fixture(
         syntax(),
         &|_| {
-            as_folder(Injector::new(
+            visit_mut_pass(Injector::new(
                 cwd.to_str().unwrap(),
                 input.to_str().unwrap(),
                 config.clone(),
