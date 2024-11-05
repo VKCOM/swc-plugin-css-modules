@@ -5,10 +5,7 @@ pub mod loader_utils;
 
 pub use config::Config;
 pub use injector::Injector;
-use swc_core::ecma::{
-    ast::Program,
-    visit::{as_folder, FoldWith},
-};
+use swc_core::ecma::{ast::Program, visit::visit_mut_pass};
 use swc_core::plugin::metadata::TransformPluginMetadataContextKind;
 use swc_core::plugin::{plugin_transform, proxies::TransformPluginProgramMetadata};
 
@@ -29,7 +26,7 @@ pub fn process_transform(program: Program, metadata: TransformPluginProgramMetad
         .get_context(&TransformPluginMetadataContextKind::Cwd)
         .expect("failed to get cwd");
 
-    program.fold_with(&mut as_folder(Injector::new(
+    program.apply(visit_mut_pass(Injector::new(
         cwd.as_str(),
         filepath.as_str(),
         config,
