@@ -8,6 +8,18 @@ on:
         type: string
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      # - uses: VKCOM/gh-actions/shared/rust/cargo-cache@main
+
+      - name: Run Clippy
+        run: cargo clippy --all-targets --all-features
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -17,11 +29,47 @@ jobs:
 
       # - uses: VKCOM/gh-actions/shared/rust/cargo-cache@main
 
-      - name: Run Test
-        run: cargo test --verbose
+      - name: Install grcov
+        run: cargo install grcov
 
-      - name: Run Clippy
-        run: cargo clippy --all-targets --all-features
+      - name: Run Test
+        run: cargo build && cargo test --verbose
+        env:
+          CARGO_INCREMENTAL: 0
+          RUSTFLAGS: "-Zprofile -Ccodegen-units=1 -Copt-level=0 -Clink-dead-code -Coverflow-checks=off -Zpanic_abort_tests -Cpanic=abort"
+          RUSTDOCFLAGS: "-Cpanic=abort"
+
+      - name: Create lcov
+        run: grcov . --binary-path ./target/debug/ -s . -t lcov --branch --ignore-not-existing --ignore "/*" -o lcov.info
+
+      - name: Upload test artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-output
+          path: |
+            lcov.info
+
+  deploy_test_coverage:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download test artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: test-output
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          use_oidc: true
+          files: lcov.info
+          fail_ci_if_error: true
+          verbose: true
 
   build:
     runs-on: ubuntu-latest
