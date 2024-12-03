@@ -30,7 +30,8 @@ jobs:
       # - uses: VKCOM/gh-actions/shared/rust/cargo-cache@main
 
       - name: Install grcov
-        run: cargo install grcov
+        working-directory: /usr/local/bin
+        run: curl -L https://github.com/mozilla/grcov/releases/latest/download/grcov-x86_64-unknown-linux-gnu.tar.bz2 | tar jxf -
 
       - name: Run Test
         run: cargo build && cargo test --verbose
