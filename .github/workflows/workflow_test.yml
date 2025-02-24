@@ -28,9 +28,8 @@ jobs:
           ref: ${{ inputs.ref }}
 
       # - uses: VKCOM/gh-actions/shared/rust/cargo-cache@main
-
       - name: Install cargo-llvm-cov
-        run: curl --proto '=https' --tlsv1.2 -fsSL "https://github.com/taiki-e/cargo-llvm-cov/releases/latest/download/cargo-llvm-cov-$(rustc -vV | grep '^host:' | cut -d' ' -f2).tar.gz"  | tar xzf - -C "$HOME/.cargo/bin"
+        run: curl --proto '=https' --tlsv1.2 -fsSL "https://github.com/taiki-e/cargo-llvm-cov/releases/download/v0.6.16/cargo-llvm-cov-$(rustc -vV | grep '^host:' | cut -d' ' -f2).tar.gz"  | tar xzf - -C "$HOME/.cargo/bin"
 
       - name: Generate code coverage
         run: cargo llvm-cov --all-features --lcov --branch --output-path lcov.info
