@@ -3,7 +3,7 @@ use std::path::PathBuf;
 
 use path_absolutize::*;
 use swc_core::ecma::ast::{Expr, ImportDecl, ImportSpecifier, Lit, MemberProp};
-use swc_core::ecma::atoms::JsWord;
+use swc_core::ecma::atoms::Atom;
 use swc_core::ecma::visit::{VisitMut, VisitMutWith};
 use swc_core::plugin::errors::HANDLER;
 
@@ -29,7 +29,7 @@ pub struct Injector {
     config: Config,
 
     generator: Generator,
-    imports: HashMap<JsWord, PathBuf>,
+    imports: HashMap<Atom, PathBuf>,
 }
 
 impl Injector {
@@ -56,7 +56,7 @@ impl Injector {
         }
     }
 
-    fn new_import(&mut self, local: &JsWord, src: &JsWord) {
+    fn new_import(&mut self, local: &Atom, src: &Atom) {
         let p = PathBuf::from(src.to_string());
 
         let filepath = p.absolutize_from(self.dir.clone()).unwrap().to_path_buf();
@@ -74,7 +74,7 @@ impl Injector {
     }
 
     /// Return class name from list.
-    fn get_generated_name(&self, module: &JsWord, name: &JsWord) -> String {
+    fn get_generated_name(&self, module: &Atom, name: &Atom) -> String {
         let filepath = self.imports.get(module).unwrap().to_path_buf();
 
         self.generator.generate(name.to_string().as_str(), filepath)
