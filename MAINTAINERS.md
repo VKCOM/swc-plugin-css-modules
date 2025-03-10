@@ -26,6 +26,7 @@ swc_core библиотека предназначена для взаимоде
 рекомендуется смотреть на [swc-project/plugins](https://github.com/swc-project/plugins/commits/main/)
 
 Примеры обновления swc_core:
+
 - #274
 - #272
 - #269
