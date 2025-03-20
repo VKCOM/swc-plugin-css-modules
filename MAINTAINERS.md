@@ -27,9 +27,9 @@ swc_core библиотека предназначена для взаимоде
 
 Примеры обновления swc_core:
 
-- #274
-- #272
-- #269
+- [#274](https://github.com/VKCOM/swc-plugin-css-modules/pull/274)
+- [#272](https://github.com/VKCOM/swc-plugin-css-modules/pull/272)
+- [#269](https://github.com/VKCOM/swc-plugin-css-modules/pull/269)
 
 ## Выпуск релизов
 
