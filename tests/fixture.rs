@@ -23,7 +23,7 @@ fn fixture(input: PathBuf) {
 
     let config: Config = serde_json::from_reader(config_file).expect("invalid config");
 
-    let cwd = env::current_dir().unwrap();
+    let cwd = env::current_dir().unwrap().canonicalize().unwrap();
 
     test_fixture(
         syntax(),
