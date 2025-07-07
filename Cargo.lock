@@ -464,11 +464,10 @@ dependencies = [
 
 [[package]]
 name = "from_variant"
-version = "2.0.1"
+version = "2.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "accfe8b52dc15c1bace718020831f72ce91a4c096709a4d733868f4f4034e22a"
+checksum = "308530a56b099da144ebc5d8e179f343ad928fa2b3558d1eb3db9af18d6eff43"
 dependencies = [
- "proc-macro2",
  "swc_macros_common",
  "syn",
 ]
