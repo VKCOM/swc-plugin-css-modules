@@ -1313,9 +1313,9 @@ dependencies = [
 
 [[package]]
 name = "serde-inline-default"
-version = "0.2.3"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "59fb1bedd774187d304179493b0d3c41fbe97b04b14305363f68d2bdf5e47cb9"
+checksum = "92d48532bc0781ac622a5fea0f16502d3b4f1af0fcebe56d618120969f35d315"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1554,9 +1554,9 @@ dependencies = [
 
 [[package]]
 name = "swc_core"
-version = "39.0.3"
+version = "42.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "56ad087b00477b9d310b5ebfa26acb867be338765558632597976ee56c898b63"
+checksum = "9c9c317f08fdd6f47c820ea5d1c80d43676f9f2032e9ae954a648b59f6a3361c"
 dependencies = [
  "swc_allocator",
  "swc_atoms",
