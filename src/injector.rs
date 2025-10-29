@@ -2,6 +2,7 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 
 use path_absolutize::*;
+use swc_core::atoms::Wtf8Atom;
 use swc_core::ecma::ast::{Expr, ImportDecl, ImportSpecifier, Lit, MemberProp};
 use swc_core::ecma::atoms::Atom;
 use swc_core::ecma::visit::{VisitMut, VisitMutWith};
@@ -58,8 +59,8 @@ impl Injector {
         }
     }
 
-    fn filepath_from_src(&self, src: &Atom) -> PathBuf {
-        let path_buf = PathBuf::from(src.to_string());
+    fn filepath_from_src(&self, src: &Wtf8Atom) -> PathBuf {
+        let path_buf = PathBuf::from(src.as_atom().expect("non-utf8 string").to_string());
 
         let filepath = path_buf
             .absolutize_from(self.dir.clone())
@@ -78,13 +79,13 @@ impl Injector {
         filepath
     }
 
-    fn new_import(&mut self, local: &Atom, src: &Atom) {
+    fn new_import(&mut self, local: &Atom, src: &Wtf8Atom) {
         let filepath = self.filepath_from_src(src);
 
         self.imports.insert(local.clone(), filepath);
     }
 
-    fn new_named_import(&mut self, imported: &Atom, local: &Atom, src: &Atom) {
+    fn new_named_import(&mut self, imported: &Atom, local: &Atom, src: &Wtf8Atom) {
         let filepath = self.filepath_from_src(src);
 
         self.named_imports
@@ -135,7 +136,10 @@ impl VisitMut for Injector {
                         MemberProp::Computed(computed) => match &*computed.expr {
                             // styles['Component--disabled']
                             Expr::Lit(Lit::Str(str_lit)) => {
-                                let generated_name = self.generated_name(&obj.sym, &str_lit.value);
+                                let generated_name = self.generated_name(
+                                    &obj.sym,
+                                    str_lit.value.as_atom().expect("non-utf8 key"),
+                                );
 
                                 let exp = Expr::from(generated_name);
 
@@ -184,6 +188,8 @@ impl VisitMut for Injector {
         if !n
             .src
             .value
+            .as_str()
+            .expect("non-utf8 string")
             .ends_with(self.config.css_modules_suffix.as_str())
             || n.specifiers.is_empty()
         {
@@ -199,7 +205,7 @@ impl VisitMut for Injector {
                 &named
                     .imported
                     .clone()
-                    .map_or(named.local.sym.clone(), |s| s.atom().clone()),
+                    .map_or(named.local.sym.clone(), |s| s.atom().as_ref().to_owned()),
                 &named.local.sym,
                 src,
             ),
