@@ -1516,9 +1516,9 @@ dependencies = [
 
 [[package]]
 name = "swc_atoms"
-version = "8.0.1"
+version = "8.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8d3c59621f6909ec8b0f2d4f467c4d802650f4a9d19bb9911b9ff413162f7748"
+checksum = "b40c2b43a19b5d0706aca8669ae5b77b92bd141f7f8ce5e980e0e52430f54b20"
 dependencies = [
  "bytecheck",
  "hstr",
