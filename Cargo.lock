@@ -258,9 +258,9 @@ checksum = "b28d2802395e3bccd95cc4ae984bff7444b6c1f5981da46a41360c42a2c7e2d9"
 
 [[package]]
 name = "cc"
-version = "1.2.44"
+version = "1.2.45"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "37521ac7aabe3d13122dc382493e20c9416f299d2ccd5b3a5340a2570cdeb0f3"
+checksum = "35900b6c8d709fb1d854671ae27aeaa9eec2f8b01b364e1619a40da3e6fe2afe"
 dependencies = [
  "find-msvc-tools",
  "shlex",
@@ -1095,9 +1095,9 @@ dependencies = [
 
 [[package]]
 name = "quote"
-version = "1.0.41"
+version = "1.0.42"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ce25767e7b499d1b604768e7cde645d14cc8584231ea6b295e9c9eb22c02e1d1"
+checksum = "a338cc41d27e6cc6dce6cefc13a0729dfbb81c262b1f519331575dd80ef3067f"
 dependencies = [
  "proc-macro2",
 ]
@@ -1537,9 +1537,9 @@ dependencies = [
 
 [[package]]
 name = "swc_common"
-version = "17.0.0"
+version = "17.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "77d9476c82da5448b227042b1e695fbe0456e7d749567e0d4ec7ac128f1e019d"
+checksum = "259b675d633a26d24efe3802a9d88858c918e6e8f062d3222d3aa02d56a2cf4c"
 dependencies = [
  "anyhow",
  "ast_node",
@@ -1570,9 +1570,9 @@ dependencies = [
 
 [[package]]
 name = "swc_core"
-version = "47.0.3"
+version = "47.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a7f00009ea1c0e45109ef3d0b9c02559e90c2a18376092ebbec7451743999ee0"
+checksum = "f88329fbf4b4aa275a384612302f4b8c56689cb4f24b1469c740f87f999379f0"
 dependencies = [
  "swc_allocator",
  "swc_atoms",
@@ -1646,9 +1646,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_parser"
-version = "27.0.2"
+version = "27.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b325a5d4bbdc4f2a2911e950ac28ac1e73b2acbdcd44b70145bb1f765dfe57b"
+checksum = "012463b97e33753387e575b1a1ec24afbbccfc2e1e795211583260916987e6fc"
 dependencies = [
  "bitflags",
  "either",
@@ -1747,9 +1747,9 @@ dependencies = [
 
 [[package]]
 name = "swc_ecma_visit"
-version = "18.0.0"
+version = "18.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "809be2fa22278809c4cdcd602ce14708cfe4bc03439dafc63d68808598f87bad"
+checksum = "a9611a72a4008d62608547a394e5d72a5245413104db096d95a52368a8cc1d63"
 dependencies = [
  "new_debug_unreachable",
  "num-bigint",
@@ -1883,9 +1883,9 @@ dependencies = [
 
 [[package]]
 name = "syn"
-version = "2.0.108"
+version = "2.0.110"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "da58917d35242480a05c2897064da0a80589a2a0476c9a3f2fdc83b53502e917"
+checksum = "a99801b5bd34ede4cf3fc688c5919368fea4e4814a4664359503e6015b280aea"
 dependencies = [
  "proc-macro2",
  "quote",
