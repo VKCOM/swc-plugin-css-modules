@@ -64,5 +64,3 @@ jobs:
 
       - name: Publishing release
         run: npm publish --non-interactive
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLISH_TOKEN }}
