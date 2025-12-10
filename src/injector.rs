@@ -215,6 +215,8 @@ impl VisitMut for Injector {
 
             // import * as styles from "./Component.module.css"
             ImportSpecifier::Namespace(namespace) => self.new_import(&namespace.local.sym, src),
+            #[cfg(swc_ast_unknown)]
+            _ => {}
         });
 
         // import styles from "./Component.module.css";

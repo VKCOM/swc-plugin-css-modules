@@ -52,3 +52,6 @@ testing = "18"
 # .cargo/config defines few alias to build plugin.
 # cargo build-wasip1 generates wasm-wasi32 binary
 # cargo build-wasm32 generates wasm32-unknown-unknown binary.
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(swc_ast_unknown)'] }
