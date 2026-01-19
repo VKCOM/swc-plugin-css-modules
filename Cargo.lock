@@ -548,9 +548,9 @@ checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
 name = "hstr"
-version = "3.0.3"
+version = "3.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0c43c0a9e8fbdb3bb9dc8eee85e1e2ac81605418b4c83b6b7413cbf14d56ca5c"
+checksum = "faa57007c3c9dab34df2fa4c1fb52fe9c34ec5a27ed9d8edea53254b50cd7887"
 dependencies = [
  "hashbrown 0.14.5",
  "new_debug_unreachable",
