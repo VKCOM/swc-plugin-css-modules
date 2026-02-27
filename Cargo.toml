@@ -19,7 +19,7 @@ strip = "symbols"
 
 [dependencies]
 
-digest = { version = "0.10", default-features = false }
+digest = { version = "0.10", features = ["alloc"] }
 # hashes
 md4 = { version = "0.10", default-features = false }
 md-5 = { version = "0.10", default-features = false }
@@ -28,7 +28,7 @@ sha2 = { version = "0.10", default-features = false }
 twox-hash = "2"
 
 # digest
-base16ct = { version = "0.3", features = ["alloc"] }
+base16ct = { version = "1", features = ["alloc"] }
 base32ct = { version = "0.3", features = ["alloc"] }
 base64ct = { version = "1", features = ["alloc"] }
 
@@ -40,15 +40,15 @@ serde_json = "1"
 serde-inline-default = "1.0.0"
 regex = "1"
 lazy_static = "1"
-swc_core = { version = "48", features = [
+swc_core = { version = "58", features = [
   "ecma_plugin_transform",
   "ecma_parser",
 ] }
 
-ts-rs = "11"
+ts-rs = "12"
 
 [dev-dependencies]
-testing = "18"
+testing = "20"
 # .cargo/config defines few alias to build plugin.
 # cargo build-wasip1 generates wasm-wasi32 binary
 # cargo build-wasm32 generates wasm32-unknown-unknown binary.
